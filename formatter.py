@@ -16,3 +16,7 @@ def get_page_format(page: str, **kwargs):
         page_number: int
     """
     return page.format(**kwargs)
+
+
+def get_saved_format(path: str, **kwargs):
+    return path.format(**kwargs)
