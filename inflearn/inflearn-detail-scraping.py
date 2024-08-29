@@ -9,7 +9,7 @@ logging.basicConfig(filename='inflearn-detail-scraping.log', filemode='w', level
 
 
 def open_file():
-    with open('/data/inflearn_lecture.json', 'r') as file:
+    with open('/Users/koo/PycharmProjects/DeepDive-Scraping/inflearn/data/inflearn_lecture.json', 'r') as file:
         data = json.load(file)
     info('Read file open successfully')
     return data
@@ -42,13 +42,15 @@ def get_inflearn_detail():
         add_contents(line, res)
         new_data.append(line)
         info(f'get {i} detail page')
+        print(f'get {i} detail page')
     info('get page details successfully')
-    with open('/data/inflearn_lecture_with_detail.json', 'w') as write_file:
+    with open('/Users/koo/PycharmProjects/DeepDive-Scraping/inflearn/data/inflearn_lecture_with_detail2.json', 'w') as write_file:
         json.dump(new_data, write_file, ensure_ascii=False, indent=2)
     info('save all page details successfully')
 
+
 def concat_string(result):
-    return list(map(lambda x: ', '.join(x), result))
+    return list(map(lambda x: '|'.join(x), result))
 
 
 def add_contents(line, res):
