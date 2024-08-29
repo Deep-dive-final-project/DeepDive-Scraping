@@ -6,14 +6,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from const.xpaths import *
 from const.page import *
-from const.inflearn_const import TIME_OUT_CNT, INITIAL_WAITING_TIME, PAGE_WAITING_TIME, MAX_PAGE_NUM
+from const.inflearn_const import TIME_OUT_CNT, INITIAL_WAITING_TIME, PAGE_WAITING_TIME, MAX_PAGE_NUM, SAVED_CSV_PATH, \
+    SAVED_JSON_PATH
 from formatter import *
 import pandas as pd
 import time
 import logging
 from logging import info
 
-logging.basicConfig(filename='../app.log', filemode='w', level=logging.INFO,
+logging.basicConfig(filename='app.log', filemode='w', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 driver = webdriver.Chrome()
@@ -179,8 +180,8 @@ def get_item(li, section_id: int, item_id: int, page_courses: list[dict], lectur
 
 
 def save_result(df: pd.DataFrame):
-    df.to_csv('db/inflearn_lecture.csv', index=False, encoding='utf-8')
-    df.to_json('db/inflearn_lecture.json', index=False, orient='records', force_ascii=False)
+    df.to_csv(SAVED_CSV_PATH, index=False, encoding='utf-8')
+    df.to_json(SAVED_JSON_PATH, index=False, orient='records', force_ascii=False)
     info(f'total dataframe length : {len(df)}')
     info("save successfully")
 
