@@ -13,7 +13,7 @@ import time
 import logging
 from logging import info
 
-logging.basicConfig(filename='app.log', filemode='w', level=logging.INFO,
+logging.basicConfig(filename='../app.log', filemode='w', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 driver = webdriver.Chrome()
