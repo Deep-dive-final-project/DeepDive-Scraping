@@ -56,7 +56,7 @@ def concat_string(result):
 def add_contents(line, res):
     line['goals'] = res[0]
     line['target'] = res[1]
-    line['pre_coures'] = res[2]
+    line['pre_course'] = res[2]
 
 
 if __name__ == '__main__':
